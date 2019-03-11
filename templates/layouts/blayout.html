@@ -1,0 +1,232 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="bn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Product example · Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/product/">
+    <script src="jquery-3.3.1.min.js"></script>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+    <!-- Custom styles for this template -->
+    <link href="{% static 'bootstrap/product.css' %}" rel="stylesheet">
+</head>
+<body>
+<nav class="site-header sticky-top py-1">
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
+        <a class="py-2" href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                 stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mx-auto" role="img"
+                 viewBox="0 0 24 24" focusable="false"><title>Product</title>
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
+            </svg>
+        </a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Tour</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Product</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Features</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Enterprise</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Support</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Pricing</a>
+        <a class="py-2 d-none d-md-inline-block" href="#">Cart</a>
+    </div>
+</nav>
+
+<div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center dark">
+    <div class="col-md-10 p-lg-10 mx-auto my-5">
+        <div class="form-row" style="margin-bottom: 23px;border: 1px solid #ffffff26;padding: 18px;border-radius: 5px;">
+            <div class="col">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" value="prothomalo" id="customSwitch1">
+                    <label class="custom-control-label" for="customSwitch1">Prothom alo</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" value="BDnews24" id="BDnews24">
+                    <label class="custom-control-label" for="BDnews24">BDnews24</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" value="Jugantor" id="Jugantor">
+                    <label class="custom-control-label" for="Jugantor">Jugantor</label>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" value="kaler" id="kaler">
+                    <label class="custom-control-label" for="kaler">kaler kontho</label>
+                </div>
+            </div>
+            <div class="col">
+                <div class="custom-control custom-switch">
+                    <input type="checkbox" class="custom-control-input" id="kaler">
+                    <label class="custom-control-label" for="kaler">kaler kontho</label>
+                </div>
+            </div>
+        </div>
+        <form>
+            <div class="form-row">
+                <div class="col-7">
+                    <input id="keyword" type="text" class="form-control" placeholder="খবর অনুসন্ধান করুন">
+                </div>
+                <div class="col">
+                    <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                        <option selected value="international">বিভাগ...</option>
+                        <option value="sport">sport</option>
+                        <option value="">Headline</option>
+                        <option value="international">Three</option>
+                    </select>
+                </div>
+
+                <div class="col-auto">
+                    <a href="#" id="button" class="btn btn-primary mb-2">Submit</a>
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+
+</div>
+{% block content %}
+{% endblock %}
+
+<footer class="container py-5">
+    <div class="row">
+        <div class="col-12 col-md">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor"
+                 stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="d-block mb-2" role="img"
+                 viewBox="0 0 24 24" focusable="false"><title>Product</title>
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M14.31 8l5.74 9.94M9.69 8h11.48M7.38 12l5.74-9.94M9.69 16L3.95 6.06M14.31 16H2.83m13.79-4l-5.74 9.94"/>
+            </svg>
+            <small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Features</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Cool stuff</a></li>
+                <li><a class="text-muted" href="#">Random feature</a></li>
+                <li><a class="text-muted" href="#">Team feature</a></li>
+                <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                <li><a class="text-muted" href="#">Another one</a></li>
+                <li><a class="text-muted" href="#">Last time</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Resource</a></li>
+                <li><a class="text-muted" href="#">Resource name</a></li>
+                <li><a class="text-muted" href="#">Another resource</a></li>
+                <li><a class="text-muted" href="#">Final resource</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>Resources</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Business</a></li>
+                <li><a class="text-muted" href="#">Education</a></li>
+                <li><a class="text-muted" href="#">Government</a></li>
+                <li><a class="text-muted" href="#">Gaming</a></li>
+            </ul>
+        </div>
+        <div class="col-6 col-md">
+            <h5>About</h5>
+            <ul class="list-unstyled text-small">
+                <li><a class="text-muted" href="#">Team</a></li>
+                <li><a class="text-muted" href="#">Locations</a></li>
+                <li><a class="text-muted" href="#">Privacy</a></li>
+                <li><a class="text-muted" href="#">Terms</a></li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function () {
+        var link, key, dailies;
+        $('select').on('change', function () {
+            link = this.value;
+            $("#button").attr('href', '/result/?link=' + link + '&strn=' + key+'&newspaper='+dailies);
+            console.log(dailies, link, key)
+
+        });
+        $("#keyword").on('change', function () {
+            key = $("#keyword").val();
+            $("#button").attr('href', '/result/?link=' + link + '&strn=' + key+'&newspaper='+dailies);
+            console.log(dailies, link, key)
+        });
+        $("#customSwitch1").click(function () {
+            if ($('#customSwitch1').is(":checked")) {
+                dailies += ' ' + $("#customSwitch1").val();
+                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key+'&newspaper='+dailies);
+                console.log(dailies, link, key)
+            }
+
+        });
+        $("#BDnews24").click(function () {
+            if ($('#BDnews24').is(":checked")) {
+                dailies += ' ' + $("#BDnews24").val();
+                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key+'&newspaper='+dailies);
+                console.log(dailies, link, key)
+            }
+        });
+        $("#Jugantor").click(function () {
+            if ($('#Jugantor').is(":checked")) {
+                dailies += ' ' + $("#Jugantor").val();
+                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key+'&newspaper='+dailies);
+                console.log(dailies, link, key)
+            }
+        });
+        $("#kaler").click(function () {
+            if ($('#kaler').is(":checked")) {
+                dailies += ' ' + $("#kaler").val();
+                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key+'&newspaper='+dailies);
+                console.log(dailies, link, key)
+            }
+        });
+
+
+    });
+</script>
+</body>
+</html>
