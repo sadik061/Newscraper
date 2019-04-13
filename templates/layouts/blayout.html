@@ -15,6 +15,7 @@
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
 
     <style>
@@ -81,14 +82,14 @@
 
             <div class="col">
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" value="kaler" id="kaler">
-                    <label class="custom-control-label" for="kaler">kaler kontho</label>
+                    <input type="checkbox" class="custom-control-input" value="pratidin" id="pratidin">
+                    <label class="custom-control-label" for="pratidin">bd pratidin</label>
                 </div>
             </div>
             <div class="col">
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="kaler">
-                    <label class="custom-control-label" for="kaler">kaler kontho</label>
+                    <input type="checkbox" class="custom-control-input" value="nayadiganta" id="nayadiganta">
+                    <label class="custom-control-label" for="nayadiganta">Naya Diganta</label>
                 </div>
             </div>
         </div>
@@ -117,6 +118,43 @@
     </div>
 
 </div>
+<script>
+        <!--session functions -->
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    function checkCookie() {
+        var user = getCookie("username");
+        if (user != "") {
+            alert("Welcome again " + user);
+        } else {
+            user = prompt("Please enter your name:", "");
+            if (user != "" && user != null) {
+                setCookie("username", user, 365);
+            }
+        }
+    }
+</script>
+
 {% block content %}
 {% endblock %}
 
@@ -180,25 +218,25 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script>
     $(document).ready(function () {
         var link, key, dailies;
         $('select').on('change', function () {
             link = this.value;
-            $("#button").attr('href', '/result/?link=' + link + '&strn=' + key+'&newspaper='+dailies);
+            $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
             console.log(dailies, link, key)
 
         });
         $("#keyword").on('change', function () {
             key = $("#keyword").val();
-            $("#button").attr('href', '/result/?link=' + link + '&strn=' + key+'&newspaper='+dailies);
+            $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
             console.log(dailies, link, key)
         });
         $("#customSwitch1").click(function () {
             if ($('#customSwitch1').is(":checked")) {
                 dailies += ' ' + $("#customSwitch1").val();
-                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key+'&newspaper='+dailies);
+                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
                 console.log(dailies, link, key)
             }
 
@@ -206,27 +244,40 @@
         $("#BDnews24").click(function () {
             if ($('#BDnews24').is(":checked")) {
                 dailies += ' ' + $("#BDnews24").val();
-                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key+'&newspaper='+dailies);
+                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
                 console.log(dailies, link, key)
             }
         });
         $("#Jugantor").click(function () {
             if ($('#Jugantor').is(":checked")) {
                 dailies += ' ' + $("#Jugantor").val();
-                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key+'&newspaper='+dailies);
+                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
                 console.log(dailies, link, key)
             }
         });
-        $("#kaler").click(function () {
-            if ($('#kaler').is(":checked")) {
-                dailies += ' ' + $("#kaler").val();
-                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key+'&newspaper='+dailies);
+        $("#pratidin").click(function () {
+            if ($('#pratidin').is(":checked")) {
+                dailies += ' ' + $("#pratidin").val();
+                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
                 console.log(dailies, link, key)
             }
         });
-
+        $("#nayadiganta").click(function () {
+            if ($('#nayadiganta').is(":checked")) {
+                dailies += ' ' + $("#nayadiganta").val();
+                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
+                console.log(dailies, link, key)
+            }
+        });
 
     });
+
+    $("a").click(function () {
+        var title = $(this).text();
+        setCookie(title, 1, 365);
+    });
+
 </script>
+
 </body>
 </html>
