@@ -37,7 +37,11 @@ def result(request):
                     if result not in prothomalo:
                         prothomalo.append(result)
         if x in "BDnews24":
-            source = requests.get('https://bangla.bdnews24.com/').text
+            if "sports" in link:
+                link = "sport"
+            if "international" in link:
+                link = ""
+            source = requests.get('https://bangla.bdnews24.com/' + link).text
             soup = BeautifulSoup(source, 'lxml')
             for posts in soup.find_all('a'):
                 headline = posts.text.strip()
@@ -48,7 +52,7 @@ def result(request):
                         bdnws24.append(result)
 
         if x in "Jugantor":
-            source = requests.get('https://www.jugantor.com/').text
+            source = requests.get('https://www.jugantor.com/' + link).text
             soup = BeautifulSoup(source, 'lxml')
             for posts in soup.find_all('a'):
                 headline = posts.text.strip()
@@ -59,7 +63,7 @@ def result(request):
                         Jugantor.append(result)
 
         if x in "pratidin":
-            source = requests.get('https://www.bd-pratidin.com/').text
+            source = requests.get('https://www.bd-pratidin.com/' + link).text
             soup = BeautifulSoup(source, 'lxml')
             for posts in soup.find_all('a'):
                 headline = posts.text.strip()
@@ -68,10 +72,13 @@ def result(request):
                     result = {'headline': headline, 'link': link}
                     if result not in pratidin:
                         pratidin.append(result)
-                        print(pratidin)
 
         if x in "nayadiganta":
-            source = requests.get('http://dailynayadiganta.com/').text
+            if "sports" in link:
+                link = "sports/11"
+            if "international" in link:
+                link = "international/8"
+            source = requests.get('http://dailynayadiganta.com/' + link).text
             soup = BeautifulSoup(source, 'lxml')
             for posts in soup.find_all('a'):
                 headline = posts.text.strip()
@@ -98,4 +105,4 @@ def custom(request):
                 result = {'headline': headline, 'link': link}
                 if result not in custom:
                     custom.append(result)
-    return render(request, 'custom.html', {'custom': custom})
+    return render(request, 'custom.html', {'custom': custom, 'name': request.GET["link"]})
