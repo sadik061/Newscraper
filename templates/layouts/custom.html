@@ -52,52 +52,13 @@
 
 <div class="position-relative overflow-hidden p-3 p-md-5 m-md-3 text-center dark">
     <div class="col-md-10 p-lg-10 mx-auto my-5">
-        <div class="form-row" style="margin-bottom: 23px;border: 1px solid #ffffff26;padding: 18px;border-radius: 5px;">
-            <div class="col">
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" value="prothomalo" id="customSwitch1">
-                    <label class="custom-control-label" for="customSwitch1">Prothom alo</label>
-                </div>
-            </div>
-            <div class="col">
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" value="BDnews24" id="BDnews24">
-                    <label class="custom-control-label" for="BDnews24">BDnews24</label>
-                </div>
-            </div>
-            <div class="col">
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" value="Jugantor" id="Jugantor">
-                    <label class="custom-control-label" for="Jugantor">Jugantor</label>
-                </div>
-            </div>
-
-            <div class="col">
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" value="pratidin" id="pratidin">
-                    <label class="custom-control-label" for="pratidin">bd pratidin</label>
-                </div>
-            </div>
-            <div class="col">
-                <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" value="nayadiganta" id="nayadiganta">
-                    <label class="custom-control-label" for="nayadiganta">Naya Diganta</label>
-                </div>
-            </div>
-        </div>
         <form>
             <div class="form-row">
-                <div class="col-7">
-                    <input id="keyword" type="text" class="form-control" placeholder="খবর অনুসন্ধান করুন">
+                <div class="col-6">
+                    <input id="link" type="text" class="form-control" placeholder="link">
                 </div>
-                <div class="col">
-                    <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
-                    <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                        <option selected value="international">বিভাগ...</option>
-                        <option value="sport">sport</option>
-                        <option value="">Headline</option>
-                        <option value="international">Three</option>
-                    </select>
+                <div class="col-5">
+                    <input id="keyword" type="text" class="form-control" placeholder="খবর অনুসন্ধান করুন">
                 </div>
 
                 <div class="col-auto">
@@ -106,6 +67,8 @@
 
             </div>
         </form>
+
+</form>
 
     </div>
 
@@ -210,54 +173,18 @@
 
 <script>
     $(document).ready(function () {
-        var link, key, dailies;
-        $('select').on('change', function () {
+        var link, key
+        $('#link').on('change', function () {
             link = this.value;
-            $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
+            $("#button").attr('href', '/custom/?link=' + link + '&strn=' + key);
             console.log(dailies, link, key)
-
         });
         $("#keyword").on('change', function () {
             key = $("#keyword").val();
-            $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
+            $("#button").attr('href', '/custom/?link=' + link + '&strn=' + key);
             console.log(dailies, link, key)
         });
-        $("#customSwitch1").click(function () {
-            if ($('#customSwitch1').is(":checked")) {
-                dailies += ' ' + $("#customSwitch1").val();
-                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
-                console.log(dailies, link, key)
-            }
 
-        });
-        $("#BDnews24").click(function () {
-            if ($('#BDnews24').is(":checked")) {
-                dailies += ' ' + $("#BDnews24").val();
-                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
-                console.log(dailies, link, key)
-            }
-        });
-        $("#Jugantor").click(function () {
-            if ($('#Jugantor').is(":checked")) {
-                dailies += ' ' + $("#Jugantor").val();
-                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
-                console.log(dailies, link, key)
-            }
-        });
-        $("#pratidin").click(function () {
-            if ($('#pratidin').is(":checked")) {
-                dailies += ' ' + $("#pratidin").val();
-                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
-                console.log(dailies, link, key)
-            }
-        });
-        $("#nayadiganta").click(function () {
-            if ($('#nayadiganta').is(":checked")) {
-                dailies += ' ' + $("#nayadiganta").val();
-                $("#button").attr('href', '/result/?link=' + link + '&strn=' + key + '&newspaper=' + dailies);
-                console.log(dailies, link, key)
-            }
-        });
 
     });
 

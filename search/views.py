@@ -6,6 +6,7 @@ import requests
 import unicodedata
 import io
 from http import cookies
+from .forms import customform
 
 
 def index(request):
@@ -22,8 +23,6 @@ def result(request):
     pratidin = []
     nayadiganta = []
     x = newspaper.split()
-    C = cookies.SimpleCookie()
-    print(C)
     for x in x:
         if x in "prothomalo":
             source = requests.get('https://www.prothomalo.com/' + link).text
@@ -35,7 +34,7 @@ def result(request):
                 if strn in headline:
                     link = "https://www.prothomalo.com/" + posts.find('a', class_='link_overlay')['href']
                     result = {'headline': headline, 'link': link}
-                    if result not in pratidin:
+                    if result not in prothomalo:
                         prothomalo.append(result)
         if x in "BDnews24":
             source = requests.get('https://bangla.bdnews24.com/').text
@@ -45,7 +44,7 @@ def result(request):
                 if strn in headline:
                     link = posts['href']
                     result = {'headline': headline, 'link': link}
-                    if result not in pratidin:
+                    if result not in bdnws24:
                         bdnws24.append(result)
 
         if x in "Jugantor":
@@ -56,7 +55,7 @@ def result(request):
                 if strn in headline:
                     link = posts['href']
                     result = {'headline': headline, 'link': link}
-                    if result not in pratidin:
+                    if result not in Jugantor:
                         Jugantor.append(result)
 
         if x in "pratidin":
@@ -65,7 +64,7 @@ def result(request):
             for posts in soup.find_all('a'):
                 headline = posts.text.strip()
                 if strn in headline:
-                    link = "http://dailynayadiganta.com/"+posts['href']
+                    link = "http://dailynayadiganta.com/" + posts['href']
                     result = {'headline': headline, 'link': link}
                     if result not in pratidin:
                         pratidin.append(result)
@@ -79,7 +78,24 @@ def result(request):
                 if strn in headline:
                     link = posts['href']
                     result = {'headline': headline, 'link': link}
-                    if result not in pratidin:
+                    if result not in nayadiganta:
                         nayadiganta.append(result)
 
-    return render(request, 'result.html', {'a': prothomalo, 'b': bdnws24, 'j': Jugantor, 'p': pratidin, 'n': nayadiganta})
+    return render(request, 'result.html',
+                  {'a': prothomalo, 'b': bdnws24, 'j': Jugantor, 'p': pratidin, 'n': nayadiganta})
+
+def custom(request):
+    link = request.GET['link']
+    strn = request.GET['strn']
+    custom = []
+    if link not in " ":
+        source = requests.get(link).text
+        soup = BeautifulSoup(source, 'lxml')
+        for posts in soup.find_all('a'):
+            headline = posts.text.strip()
+            if strn in headline:
+                link = posts['href']
+                result = {'headline': headline, 'link': link}
+                if result not in custom:
+                    custom.append(result)
+    return render(request, 'custom.html', {'custom': custom})
