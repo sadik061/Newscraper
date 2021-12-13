@@ -6,7 +6,7 @@ Django==2.1.11
 get==2018.11.19
 html5lib==1.0.1
 idna==2.8
-lxml==4.3.1
+lxml==4.6.5
 post==2018.11.20
 public==2018.11.20
 pytz==2018.9
