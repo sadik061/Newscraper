@@ -1,6 +1,6 @@
 bangla==0.0.2
 beautifulsoup4==4.7.1
-certifi==2018.11.29
+certifi==2022.12.7
 chardet==3.0.4
 Django==2.1.11
 get==2018.11.19
